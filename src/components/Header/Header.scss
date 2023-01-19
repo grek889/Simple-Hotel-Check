@@ -1,0 +1,14 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px;
+
+  .logout-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    .logout {
+      padding-right: 15px;
+    }
+  }
+}
