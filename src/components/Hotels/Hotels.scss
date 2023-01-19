@@ -1,0 +1,27 @@
+.hotels {
+  width: 50vw;
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0 28px 0;
+  }
+  &__naming {
+    display: flex;
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 32px;
+  }
+
+  &__img{
+    margin: 0 20px;
+  }
+
+  &__date {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
