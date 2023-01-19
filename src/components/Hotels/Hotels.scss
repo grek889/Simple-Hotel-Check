@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 16px 0 28px 0;
+    margin: 0px 0 28px 0;
   }
   &__naming {
     display: flex;
@@ -15,7 +15,7 @@
     font-size: 32px;
   }
 
-  &__img{
+  &__img {
     margin: 0 20px;
   }
 
@@ -23,5 +23,27 @@
     font-weight: 400;
     font-size: 24px;
     line-height: 28px;
+  }
+  &__content {
+    margin-top: 35px;
+    &__favorite {
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 22px;
+    }
+    &__cards {
+      margin-top: 30px;
+      height: 50vh;
+      overflow: auto;
+    }
+    &__cards::-webkit-scrollbar {
+      width: 2px;
+      height: 8px;
+      background-color: #E7E7E7; /* or add it to the track */
+    }
+    &__cards::-webkit-scrollbar-thumb {
+        background-color: #41522E;;    /* цвет бегунка */
+        border-radius: 2px;       /* округлось бегунка */
+      }
   }
 }

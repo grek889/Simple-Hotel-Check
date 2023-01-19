@@ -18,6 +18,7 @@ export const Choice = () => {
   useEffect(() => {
     handleData()
     handleHotels()
+    
   }, [])
   
 
@@ -26,12 +27,20 @@ export const Choice = () => {
   };
 
   const handleData = () => {
+    let options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timezone: 'UTC'
+    };
     const endDate = new Date(startDate)
     endDate.setDate(startDate.getDate() + Number(dateCount))
     const obj = {
       location: location,
       dateStart: startDate.toISOString().split("T")[0],
       dateEnd: endDate.toISOString().split("T")[0],
+      dateCount: dateCount,
+      dateRus: new Date(startDate).toLocaleString("ru", options).slice(0, -2)
     };
     dispatch(addData(obj));
   };
