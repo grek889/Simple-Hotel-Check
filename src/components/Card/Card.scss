@@ -1,0 +1,71 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
+
+  &__main {
+    display: flex;
+  }
+
+  &__img {
+    margin-right: 25px;
+  }
+
+  &__main-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 22px;
+  }
+
+  &__date {
+    color: #878787;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  &__stars{
+    margin-top: 10px;
+  }
+
+  &__like-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    svg {
+      cursor: pointer;
+    }
+    path:hover {
+      fill: #ebebeb;
+    }
+  }
+
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 110px;
+    h6 {
+      color: #878787;
+      font-weight: 300;
+      font-size: 11px;
+      line-height: 22px;
+    }
+    h3 {
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 22px;
+    }
+    h3:after {
+      content: "\20BD";
+    }
+  }
+}

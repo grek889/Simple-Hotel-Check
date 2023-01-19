@@ -1,13 +1,13 @@
 import { SET_HOTELS } from "../constants";
 
 const defaultState = {
-  hotels: [],
+  hotelsList: [],
 };
 
 const hotels = (state = defaultState, action) => {
   switch (action.type) {
     case SET_HOTELS:
-      return { ...state, hotels: action.payload };
+      return { ...state, hotelsList: action.payload };
     default:
       return state;
   }
