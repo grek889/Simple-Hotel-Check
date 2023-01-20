@@ -5,12 +5,10 @@ import "./Login.scss";
 
 export const Login = () => {
   const [login, setLogin] = useState("");
-  const [user, setUser] = useState(localStorage.getItem("user"));
   const [pass, setPass] = useState("");
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
-  console.log(user);
 
   const handleLogin = () => {
     const EMAIL_REGEXP =
@@ -21,7 +19,7 @@ export const Login = () => {
     if (EMAIL_REGEXP.test(login)) {
       if (pass.length >= 6) {
         localStorage.setItem("user", JSON.stringify(data));
-        navigate("/home")
+        navigate("/")
       }
       else{
         setError(true)
