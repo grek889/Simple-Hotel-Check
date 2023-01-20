@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 
 
-export const Login = () => {
+export const Login = ({setLocalUser}) => {
   const [login, setLogin] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState(false);
@@ -19,7 +19,7 @@ export const Login = () => {
     if (EMAIL_REGEXP.test(login)) {
       if (pass.length >= 6) {
         localStorage.setItem("user", JSON.stringify(data));
-        navigate("/")
+        navigate("/redirect-page")
       }
       else{
         setError(true)

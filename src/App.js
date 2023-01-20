@@ -7,8 +7,9 @@ function App() {
   const [localUser, setLocalUser] = useState(localStorage.getItem("user"));
 
   const ProtectedRoute = ({ user, children }) => {
-    if (!{user}) {
-      return <Navigate to="/login" replace />;
+    console.log(user);
+    if (!user) {
+      return <Navigate to="/" replace />;
     }
     return children;
   };
@@ -18,14 +19,15 @@ function App() {
     <>
       <Routes>
         <Route
-          path="/"
+          path="/home"
           element={
             <ProtectedRoute user={localUser}>
               <Home />
             </ProtectedRoute>
           }
         />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login setLocalUser={setLocalUser}/>} />
+        <Route path='/redirect-page' element={ <Navigate to="/home" replace={true} /> }/>
       </Routes>
     </>
   );
