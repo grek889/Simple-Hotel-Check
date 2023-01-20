@@ -4,25 +4,23 @@ import { Login } from "./pages/Login";
 import { useState } from "react";
 
 function App() {
-  const [user, setUser] = useState(localStorage.getItem("user"));
+  const [localUser, setLocalUser] = useState(localStorage.getItem("user"));
 
   const ProtectedRoute = ({ user, children }) => {
-    if (!user) {
+    if (!{user}) {
       return <Navigate to="/login" replace />;
     }
     return children;
   };
-  const getUser = (userObj) => {
-    setUser(userObj);
-  };
+
 
   return (
     <>
       <Routes>
         <Route
-          path="/"
+          path="/home"
           element={
-            <ProtectedRoute user={user}>
+            <ProtectedRoute user={localUser}>
               <Home />
             </ProtectedRoute>
           }
