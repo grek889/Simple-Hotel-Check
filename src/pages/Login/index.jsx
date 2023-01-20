@@ -1,11 +1,16 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.scss";
+
 
 export const Login = () => {
   const [login, setLogin] = useState("");
+  const [user, setUser] = useState(localStorage.getItem("user"));
   const [pass, setPass] = useState("");
   const [error, setError] = useState(false);
 
+  const navigate = useNavigate();
+  console.log(user);
 
   const handleLogin = () => {
     const EMAIL_REGEXP =
@@ -16,7 +21,7 @@ export const Login = () => {
     if (EMAIL_REGEXP.test(login)) {
       if (pass.length >= 6) {
         localStorage.setItem("user", JSON.stringify(data));
-        window.location.assign("http://localhost:3000/");
+        navigate("/home")
       }
       else{
         setError(true)
@@ -51,7 +56,7 @@ export const Login = () => {
             />
             {error ? <label className="error" htmlFor="error">Неверный логин или пароль</label> : ""}
             <div className="auth__buttons ">
-              <button onClick={handleLogin} className="btn">
+              <button onClick={() => handleLogin()} className="btn">
                 {" "}
                 Войти
               </button>
