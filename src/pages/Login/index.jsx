@@ -23,7 +23,7 @@ export const Login = () => {
       }
     }
     else{
-      setError(true)
+      setError(true)  
     }
   };
 
