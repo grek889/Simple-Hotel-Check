@@ -1,14 +1,28 @@
 import React from "react";
 import "./Hotels.scss";
 import arrow from "../../assets/img/Arrow.svg";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import AutoPlay from "./autoPlay";
 import { Card } from "../Card";
 
 export const Hotels = () => {
-  const info = useSelector((store) => store?.data?.dataLists[0]);   
+  const info = useSelector((store) => store?.data?.dataLists[0]);
+  const favorite = useSelector((store) => store?.favorite?.favoriteLists);
   const hotels = useSelector((store) => store?.hotels?.hotelsList);
-  console.log(hotels);   
+  // console.log(hotels);
+
+
+  const createLabel = (number) => {
+    const titles = ["отель", "отеля", "отелей"];
+    const cases = [2, 0, 1, 1, 1, 2];
+    return `${
+      titles[
+        number % 100 > 4 && number % 100 < 20
+          ? 2
+          : cases[number % 10 < 5 ? number % 10 : 5]
+      ]
+    }`;
+  };
   return (
     <div className="container hotels">
       <div className="hotels__head">
@@ -22,12 +36,20 @@ export const Hotels = () => {
       <AutoPlay />
       <div className="hotels__content">
         <div>
-          <h4 className="hotels__content__favorite">{`Добавлено в Избранное: 3 отеля`}</h4>
+          <h4 className="hotels__content__favorite">{`Добавлено в Избранное: ${favorite.length} ${createLabel(favorite.length)}`}</h4>
         </div>
         <div className="hotels__content__list">
-            <ul className="hotels__content__cards">
-                {hotels.map((hotel) => <Card key={hotel.hotelId} name={hotel.hotelName} date={info.dateRus} count={info.dateCount} price={hotel.priceFrom} stars={hotel.stars}/>)}
-            </ul>
+          <ul className="hotels__content__cards cards">
+            {hotels.map((hotel,index) => (
+              <Card
+                hotel={hotel}
+                houseVisible={true}
+                key={index}
+                date={info.dateRus}
+                count={info.dateCount}
+              />
+            ))}
+          </ul>
         </div>
       </div>
     </div>

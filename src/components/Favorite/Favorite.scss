@@ -1,0 +1,43 @@
+.favorite {
+  width: 25vw;
+  height: 64vh;
+
+  &__buttons {
+    margin: 16px 0 0 0;
+    display: flex;
+  }
+  &__button {
+    display: flex;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 4px 8px;
+    gap: 4px;
+
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    h6 {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #99a0a3;
+    }
+    &__img{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+  }
+//   &__button:hover {
+//     opacity: 0.6;
+//   }
+  &__button:active {
+    opacity: 0.6;
+  }
+  .active {
+    border: 1px solid #41522e;
+    h6 {
+      color: #41522e;
+    }
+  }
+}
