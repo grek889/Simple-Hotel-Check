@@ -1,11 +1,13 @@
 import React from "react";
 import "./Header.scss";
+import { useNavigate } from "react-router-dom";
 import logoutImg from "../../assets/img/Logout.svg";
 
 export const Header = () => {
+  const navigate = useNavigate();
   const logout = () => {
     localStorage.removeItem("user");
-    window.location.assign("http://localhost:3000/login")
+    navigate("/")
   };
   return (
     <header>
