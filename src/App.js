@@ -24,14 +24,14 @@ function App() {
     <>
       <Routes>
         <Route
-          path="/home"
+          path="/"
           element={
             <ProtectedRoute>
               <Home />
             </ProtectedRoute>
           }
         />
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         {/* <Route path='/redirect-page' element={ <Navigate to="/home" replace={true} /> }/> */}
       </Routes>
     </>

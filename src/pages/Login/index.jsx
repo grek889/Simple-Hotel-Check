@@ -21,7 +21,7 @@ export const Login = () => {
     if (EMAIL_REGEXP.test(login)) {
       if (pass.length >= 6) {
         localStorage.setItem("user", JSON.stringify(data));
-        navigate("/home")
+        navigate("/")
       }
       else{
         setError(true)
