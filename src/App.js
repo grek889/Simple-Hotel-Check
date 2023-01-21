@@ -6,14 +6,19 @@ import { useState } from "react";
 function App() {
   const [localUser, setLocalUser] = useState(localStorage.getItem("user"));
 
-  const ProtectedRoute = ({ user, children }) => {
-    console.log(user);
-    if (!user) {
-      return <Navigate to="/" replace />;
+  const useAuth = () => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      return true;
+    } else {
+      return false;
     }
-    return children;
   };
 
+  const ProtectedRoute = ({ children }) => {
+    const auth = useAuth();
+    return auth ? children : <Navigate to="/login" />;
+  };
 
   return (
     <>
@@ -21,13 +26,13 @@ function App() {
         <Route
           path="/home"
           element={
-            <ProtectedRoute user={localUser}>
+            <ProtectedRoute>
               <Home />
             </ProtectedRoute>
           }
         />
-        <Route path="/" element={<Login setLocalUser={setLocalUser}/>} />
-        <Route path='/redirect-page' element={ <Navigate to="/home" replace={true} /> }/>
+        <Route path="/" element={<Login />} />
+        {/* <Route path='/redirect-page' element={ <Navigate to="/home" replace={true} /> }/> */}
       </Routes>
     </>
   );
