@@ -1,6 +1,6 @@
 .hotels {
   width: 46vw;
-  height: 120vh;
+  // height: 120vh;
   &__head {
     display: flex;
     justify-content: space-between;
@@ -34,7 +34,7 @@
       line-height: 22px;
     }
     .cards {
-      height: 70vh;
+      height: 73vh;
     }
   }
 }
