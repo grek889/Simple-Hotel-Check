@@ -1,4 +1,4 @@
-#Simple Hotel Check
+# Simple Hotel Check
 
 ## Hosted on 
 https://bucolic-douhua-0a8b16.netlify.app/
