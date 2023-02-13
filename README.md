@@ -5,7 +5,7 @@ https://bucolic-douhua-0a8b16.netlify.app/
 
 ## Authorization data
 
-email: any email
+email: any email 
 password: any 6 characters
 
 ## Available Scripts
