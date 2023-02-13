@@ -3,6 +3,11 @@
 ## Hosted on 
 https://bucolic-douhua-0a8b16.netlify.app/
 
+## Authorization data
+
+email: any email
+password: any 6 characters
+
 ## Available Scripts
 
 In the project directory, you can run:
